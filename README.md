@@ -1,1 +1,0 @@
-# alexa-football-quiz
