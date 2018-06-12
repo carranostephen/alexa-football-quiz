@@ -1,0 +1,28 @@
+In order to create my Alexa Skill Quiz I decided to use an array of questions and
+answers to call from in my intents. Having an array of questions allows the program
+to call to a specific index in the array and read off the question individually.
+The questions and answers in each array corresponded to one another so answers could
+be checked respectively. The "footballQuizIntent" told Alexa to call into the 
+questions array and read out the first index because count = 0. Also, this intent 
+listened for an answer to the question that was called. Inside the "answerIntent",
+a variable called answer was created to take in the answer to the question that was 
+asked. 
+
+Alexa checks the answers by using an if statement that says if the answer given is equal
+to the answer in the answers array at the given index count will be increased 1 in
+order to go on to the next question. Also, within the if statement the score is
+increased because the answer given was correct in correlation to the answers array.
+If the answer is incorrect, the program enters an else statement that only increments
+count because incorrect answers shouldn't improve the score. In order to read off the
+next question, the answerIntent emits the footballQuizIntent again with the next index.
+This would allow the user to be asked the next question and give another answer that
+could be checked. This would be repeated until there were no more questions.
+
+Once the variable count reached the length of questions array, Alexa would stop asking
+questions because there is no more and call to a different intent called scoreIntent.
+This new intent would tell the user their score by saying "Your score is __%". Because
+scores can vary, a function called percentScore(score) was created to calculate the
+users score for that round. scoreIntent called to the percentScore function because it
+returned the percent the user got correct. Since the questions and answers array are 
+called to, the user may decide to change the questions and answers to what they want
+as long as they change their invoking names and how they start the quiz.
